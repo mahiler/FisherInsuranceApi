@@ -29,15 +29,15 @@ namespace FisherInsuranceApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddSingleton<IMemoryStore, MemoryStore>(); 
+            services.AddDbContext<FisherContext>(); 
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            app.UseDefaultFiles(); 
+            app.UseStaticFiles(); 
 
             app.UseMvc();
         }
