@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../auth.service';
 @Component({
 
  selector: 'quotes-home-page',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
 
 })
 
-export class QuotesComponent {
+export class QuotesComponent 
+{
+    constructor(
+        private authService: AuthService
+    ){}
 }
